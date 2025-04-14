@@ -1,6 +1,3 @@
-markdown
-
-Copy
 # Task Manager API
 
 A Django-based RESTful API for a task management system, built with Django REST Framework. Users can create tasks, assign tasks to users, and retrieve tasks assigned to a specific user.
@@ -15,52 +12,52 @@ A Django-based RESTful API for a task management system, built with Django REST 
 
 ### Installation
 1. Clone the repository or unzip the project folder:
-   ```bash
-   git clone https://github.com/mano-achanta/task-manager-api.git
-   cd task_manager
-Create and activate a virtual environment:
-bash
+```bash
+git clone https://github.com/your-username/task-manager-api.git
+cd task_manager
+```
 
-Copy
+2. Create and activate a virtual environment:
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
-bash
+```
 
-Copy
+3. Install dependencies:
+```bash
 pip install -r requirements.txt
-Apply migrations:
-bash
+```
 
-Copy
+4. Apply migrations:
+```bash
 python manage.py makemigrations
 python manage.py migrate
-Create a superuser:
-bash
+```
 
-Copy
+5. Create a superuser:
+```bash
 python manage.py createsuperuser
-Run the development server:
-bash
+```
 
-Copy
+6. Run the development server:
+```bash
 python manage.py runserver
-API Endpoints
-Create Task: POST /api/tasks/
-Example Request:
-json
+```
 
-Copy
+## API Endpoints
+
+### Create Task: `POST /api/tasks/`
+**Example Request:**
+```json
 {
     "name": "Complete Project Proposal",
     "description": "Draft the project proposal for client X.",
     "task_type": "URGENT",
     "assigned_user_ids": [1]
 }
-Example Response (201 Created):
-json
-
-Copy
+```
+**Example Response (201 Created):**
+```json
 {
     "id": 1,
     "name": "Complete Project Proposal",
@@ -81,18 +78,17 @@ Copy
     ],
     "assigned_user_ids": [1]
 }
-Assign Task: POST /api/tasks/<task_id>/assign/
-Example Request:
-json
+```
 
-Copy
+### Assign Task: `POST /api/tasks/<task_id>/assign/`
+**Example Request:**
+```json
 {
     "user_ids": [1, 2]
 }
-Example Response (200 OK):
-json
-
-Copy
+```
+**Example Response (200 OK):**
+```json
 {
     "id": 1,
     "name": "Complete Project Proposal",
@@ -121,12 +117,12 @@ Copy
     ],
     "assigned_user_ids": [1, 2]
 }
-Get User Tasks: GET /api/tasks/user/<user_id>/
-Example Request: GET /api/tasks/user/1/
-Example Response (200 OK):
-json
+```
 
-Copy
+### Get User Tasks: `GET /api/tasks/user/<user_id>/`
+**Example Request:** `GET /api/tasks/user/1/`
+**Example Response (200 OK):**
+```json
 [
     {
         "id": 1,
@@ -156,23 +152,30 @@ Copy
         ]
     }
 ]
-Test Credentials
-Superuser: admin / password123 (email: admin@example.com, mobile: 1234567890)
-Test Users:
-user1 / pass123 (email: user1@example.com, mobile: 1234567890, first_name: John)
-user2 / pass123 (email: user2@example.com, mobile: 0987654321, first_name: Jane)
-Running Tests
-bash
+```
 
-Copy
+## Test Credentials
+- **Superuser:** admin / password123 (email: admin@example.com, mobile: 1234567890)
+- **Test Users:**
+  - user1 / pass123 (email: user1@example.com, mobile: 1234567890, first_name: John)
+  - user2 / pass123 (email: user2@example.com, mobile: 0987654321, first_name: Jane)
+
+## Running Tests
+```bash
 python manage.py test
-Project Structure
-manage.py: Django command-line utility.
-task_manager/: Project settings and configuration.
-tasks/: App containing models, serializers, views, and URLs.
-requirements.txt: Project dependencies.
-README.md: This file.
-.gitignore: Ignored files for Git.
-Notes
-Uses SQLite by default (no separate installation needed).
-Authentication is disabled for simplicity. Enable IsAuthenticated in views.py for production
+```
+
+## Project Structure
+```
+manage.py                  # Django command-line utility
+/task_manager/            # Project settings and configuration
+/tasks/                   # App containing models, serializers, views, and URLs
+requirements.txt          # Project dependencies
+README.md                 # This file
+.gitignore                # Git ignored files
+```
+
+## Notes
+- Uses SQLite by default (no separate installation needed).
+- Authentication is disabled for simplicity. Enable `IsAuthenticated` in `views.py` for production.
+
