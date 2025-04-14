@@ -13,7 +13,7 @@ A Django-based RESTful API for a task management system, built with Django REST 
 ### Installation
 1. Clone the repository or unzip the project folder:
 ```bash
-git clone https://github.com/your-username/task-manager-api.git
+git clone https://github.com/mano-achanta/task-manager-api.git
 cd task_manager
 ```
 
